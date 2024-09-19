@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.21.0",
+    "googleapis": "^144.0.0",
+    "nestjs": "^0.0.1",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.6.2"
+  }
+}
