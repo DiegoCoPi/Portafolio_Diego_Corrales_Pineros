@@ -146,6 +146,7 @@ html,
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
+  background-color: greenyellow;
 }
 
 /*
@@ -154,7 +155,7 @@ html,
 */
 
 body {
-  margin: 0; /* 1 */
+  margin: 30px; /* 1 */
   line-height: inherit; /* 2 */
 }
 
@@ -287,8 +288,8 @@ textarea {
   line-height: inherit; /* 1 */
   letter-spacing: inherit; /* 1 */
   color: inherit; /* 1 */
-  margin: 0; /* 2 */
-  padding: 0; /* 3 */
+  margin: 50px; /* 2 */
+  padding: 50px; /* 3 */
 }
 
 /*
