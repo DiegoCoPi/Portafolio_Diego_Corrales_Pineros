@@ -11,5 +11,19 @@
     "not firefox <= 126",
     "not safari <= 17.5",
     "not samsung <= 25"
-  ]
+  ],
+  "hints": {
+    "axe/text-alternatives": [
+      "default",
+      {
+        "document-title": "off"
+      }
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ]
+  }
 }
