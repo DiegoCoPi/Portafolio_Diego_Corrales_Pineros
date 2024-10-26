@@ -6,7 +6,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'custom-image': "url('/src/imagenes/inteligencia.jpg')"
+      }  
+    },
   },
   plugins: [],
 }
