@@ -9,7 +9,7 @@ module.exports = {
       backgroundImage:{
         'text-gradient':"linear-gradient(45deg, #ff7e5f, #feb47b)",
         'custom-image':"url('./src/imagenes/inteligencia.jpg')",
-        'photo-image':"url('')"
+        //'photo-image':"url('./src/imagenes/Diego-Corrales-Carnet.jpg')"
       }  
     },
   },
