@@ -204,7 +204,12 @@ abbr:where([title]) {
 Remove the default font size and weight for headings.
 */
 
-h1,
+h1{
+  
+  text-align: center;
+  color:gold;
+  background-color: rgba(0, 255, 255, 0.562);
+}
 h2,
 h3,
 h4,
@@ -538,6 +543,24 @@ object {
   /* 2 */
 }
 
+/*Adctionals*/
+
+section{
+  margin: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  color:gold;
+  background-color: #04609ea4;
+}
+
+footer{
+  margin: 40px;
+  border-radius: 10px;
+  color: aquamarine;
+  background-color: rgba(0, 0, 139, 0.616);  
+}
+
+
 /*
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
@@ -558,24 +581,12 @@ video {
   margin-top: 2rem;
 }
 
-.h-40 {
-  height: 10rem;
-}
-
 .h-screen {
   height: 100vh;
 }
 
-.w-40 {
-  width: 10rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
 .bg-custom-image {
-  background-image: url('./src/imagenes/inteligencia.jpg');
+  background-image: url('./imagenes/inteligencia.jpg');
 }
 
 .bg-cover {
@@ -584,11 +595,6 @@ video {
 
 .bg-center {
   background-position: center;
-}
-
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .text-center {
