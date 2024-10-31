@@ -210,7 +210,9 @@ h1{
   color:gold;
   background-color: rgba(0, 255, 255, 0.562);
 }
-h2,
+h2{
+  text-align: initial;
+}
 h3,
 h4,
 h5,
@@ -565,7 +567,11 @@ footer{
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
 
-img,
+img{
+  max-width: 160px;
+  margin-left:50px;
+  border-radius: 100%;
+}
 video {
   max-width: 100%;
   height: auto;
