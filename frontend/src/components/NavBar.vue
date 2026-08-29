@@ -5,10 +5,10 @@
 <template>
   <nav class="navbar">
     <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Soporte It</a></li>
-      <li><a href="#">FullStack</a></li>
-      <li><a href="#">Mecatrónico</a></li>
+      <li><router-link to="/">Inicio</router-link></li>
+      <li><router-link to="/">Soporte It</router-link></li>
+      <li><router-link to="/">FullStack</router-link></li>
+      <li><router-link to="/">Mecatrónico</router-link></li>
     </ul>
   </nav>
 </template>
