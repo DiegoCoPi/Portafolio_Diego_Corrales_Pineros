@@ -43,9 +43,11 @@ html, body {
 .main {
   color: burlywood;
   margin: 50px;
+  padding: 50px;
   display: flex;             
   align-items: center;       
-  gap: 30px;          
+  gap: 30px;   
+  background-color: rgba(0, 0, 0, 0.5);       
 }
 
 .main .profile-image img {
