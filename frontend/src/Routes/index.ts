@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../Pages/home.vue'
-import ItSupport from '../Pages/it-support.vue' 
+import ItSupport from '../Pages/it-support.vue'
+import FullStack from '../Pages/fullstack.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/it-support',
     name: 'ItSupport',
     component: ItSupport
+  },
+  {
+    path: '/fullstack',
+    name: 'FullStack',
+    component: FullStack
   }
 ]
 

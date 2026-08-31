@@ -6,19 +6,19 @@
 </script>
 
 <template>
-    <div class="it-support-container">
+    <div class="fullstack-container">
         <Header/>
         <NavBar/>
         <main class="main">
-            <div class="ItSupport-introduce">
+            <div class="fullstack-introduce">
                 <div>
-                    <h2 class="title-it">Especilaista de soporte IT</h2>
+                    <h2 class="title-fullstack">Desarrollador Fullstack</h2>
                     <p>
-                        Tengo experiencia en mesa de ayuda para configurar redes IP, modem satelitales, equipos
-                        complementarios de WAN, LAN, VLAN e IP, orientación al cliente para solventar el problema
-                        de configuración e instalación en más de 130 instalaciones en 8 proyectos ubicados en 5 
-                        paises de LATAM con una eficiencia del 98% de exito en las tareas y satisfacción en cada uno
-                        de los clientes beneficiados en un 98% y reducción de tiempo de entrega en 25%.
+                        He realizado mas de 10 asesorias internas a personas naturales y micro empresas 
+                        acerca de diseño visual, componenetes, decoradores, paletas de colores, base de 
+                        datos relacional y no relacionales (SQL y no SQL), enrutadores, servidores, 
+                        controladores y moduladores con lenguajes, framework y librerias mas usadas en la 
+                        industria web.
                     </p>
                 </div>
                 <div>
@@ -29,6 +29,9 @@
                         Diego Alexander Corrales Piñeros Desarrollador FullStack
                     </a>
                 </div>
+                <div>
+                    <!-- Logos de los progrmas que uso -->
+                </div>
             </div>
         </main>
         <Footer/>
@@ -38,10 +41,10 @@
 
 <style scoped>
 
-    .it-support-container {
+    .fullstack-container {
         background-image: 
         linear-gradient(#04154799),
-        url('../assets/Pictures-for-screen/Circuitos-3.jpg');
+        url('../assets/Pictures-for-screen/Desarrollador-Web-1.jpg');
         background-size: cover;          
         background-position: center;   
         background-repeat: no-repeat;    
@@ -52,29 +55,29 @@
         justify-content: space-between;
     }
 
-    .ItSupport-introduce{
+    .fullstack-introduce{
         display: flex;
         gap:30px;
     }
 
-    .ItSupport-introduce .title-it{
+    .fullstack-introduce .title-fullstack{
         text-align: left;
         color:rgb(6, 235, 67);
         font-size: 4rem;
     }
 
-    .ItSupport-introduce p{
+    .fullstack-introduce p{
         color: #8C8C8C;
         font-size: 2.3rem;
     }
 
-    .ItSupport-introduce a{
+    .fullstack-introduce a{
         color: rgb(6, 235, 67);
         text-decoration: none;
         margin: 1px
     }
 
-    .ItSupport-introduce a img{
+    .fullstack-introduce a img{
         width: 100px;
         height: 100px;
         display: flex;
