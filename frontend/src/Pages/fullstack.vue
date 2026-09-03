@@ -4,7 +4,7 @@
   import Footer from '../components/Footer.vue'
   
   // 1. Quitar la extensión .ts al importar
-  //import { logosFullStack } from '../components/Logos-Full-Stack'
+  import { LogosFullStack } from '../components/Logos-Full-Stack'
 </script>
 
 <template>
@@ -32,12 +32,18 @@
                         Diego Alexander Corrales Piñeros Desarrollador FullStack
                     </a>
                 </div>
-                <div>
-                    <!-- Tarjetas de logos -->
-                   
-                </div>
             </div>
         </main>
+            <!-- 2. Recorrer las tarjetas de logos desde el archivo TypeScript -->
+        <div class="logos-container">
+            <div v-if="LogosFullStack.length > 0" class="logos-grid">
+                <div v-for="Logo in LogosFullStack" :key="Logo.id">
+                    <img :src="Logo.img" :alt="Logo.alt"/>
+                    <p>{{ Logo.name }}</p>
+                </div>
+            </div>
+        </div>
+       
         <Footer/>
     </div>
 </template>
@@ -62,6 +68,7 @@
         display: flex;
         flex-direction: row;
         gap: 30px;
+        padding: 20px;
     }
 
     .fullstack-introduce .title-fullstack {
@@ -87,10 +94,21 @@
     }
 
     /* Estilos para las tarjetas de logos */
+    .logos-container {
+        color:silver;
+        background-color: rgba(4, 228, 60, 0.778);
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+    }
     .logos-grid {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+        justify-content: flex-start;
     }
 
     .card-logo {
