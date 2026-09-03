@@ -9,7 +9,7 @@
       <li><router-link to="/">Inicio</router-link></li>
       <li><router-link to="/it-support">Soporte It</router-link></li>
       <li><router-link to="/fullstack">FullStack</router-link></li>
-      <li><router-link to="/">Mecatrónico</router-link></li>
+      <li><router-link to="/mecatronic">Mecatrónico</router-link></li>
     </ul>
   </nav>
 </template>
