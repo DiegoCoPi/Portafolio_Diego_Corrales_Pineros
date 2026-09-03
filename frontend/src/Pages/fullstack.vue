@@ -1,8 +1,10 @@
 <script setup lang="ts">
-  // Aquí irá la lógica de tu página de soporte IT más adelante
   import NavBar from '../components/NavBar.vue'
   import Header from '../components/Header.vue'
   import Footer from '../components/Footer.vue'
+  
+  // 1. Quitar la extensión .ts al importar
+  //import { logosFullStack } from '../components/Logos-Full-Stack'
 </script>
 
 <template>
@@ -22,29 +24,30 @@
                     </p>
                 </div>
                 <div>
-                    <!--Insertar archivo descargable -->
-                    <a href="../../public/documents/DiegoAlexanderCorralesPiñerosDesarrolladorJunior.pdf" 
-                    download="Diego_Alexander_Corrales_Pineros_Desarrollador_Junior.pdf" class="btn-download">
+                    <!-- Enlace público recomendado para archivos estáticos de descargas -->
+                    <a href="/documents/DiegoAlexanderCorralesPiñerosDesarrolladorJunior.pdf" 
+                       download="Diego_Alexander_Corrales_Pineros_Desarrollador_Junior.pdf" 
+                       class="btn-download">
                         <img src="../assets/Pictures-for-screen/Adobe_PDF.png" alt="PDF Icon"/>
                         Diego Alexander Corrales Piñeros Desarrollador FullStack
                     </a>
                 </div>
                 <div>
-                    <!-- Logos de los progrmas que uso -->
+                    <!-- Tarjetas de logos -->
+                   
                 </div>
             </div>
         </main>
         <Footer/>
     </div>
-    
 </template>
 
 <style scoped>
-
     .fullstack-container {
+        /* Para el degradado de color plano sobre la imagen */
         background-image: 
-        linear-gradient(#04154799),
-        url('../assets/Pictures-for-screen/Desarrollador-Web-1.jpg');
+          linear-gradient(rgba(4, 21, 71, 0.6), rgba(4, 21, 71, 0.6)),
+          url('../assets/Pictures-for-screen/Desarrollador-Web-1.jpg');
         background-size: cover;          
         background-position: center;   
         background-repeat: no-repeat;    
@@ -55,33 +58,53 @@
         justify-content: space-between;
     }
 
-    .fullstack-introduce{
+    .fullstack-introduce {
         display: flex;
-        gap:30px;
+        flex-direction: row;
+        gap: 30px;
     }
 
-    .fullstack-introduce .title-fullstack{
+    .fullstack-introduce .title-fullstack {
         text-align: left;
-        color:rgb(6, 235, 67);
+        color: rgb(6, 235, 67);
         font-size: 4rem;
     }
 
-    .fullstack-introduce p{
+    .fullstack-introduce p {
         color: #8C8C8C;
         font-size: 2.3rem;
     }
 
-    .fullstack-introduce a{
+    .fullstack-introduce a {
         color: rgb(6, 235, 67);
         text-decoration: none;
-        margin: 1px
+        margin: 1px;
     }
 
-    .fullstack-introduce a img{
+    .fullstack-introduce a img {
         width: 100px;
         height: 100px;
-        display: flex;
-        gap:5px;
     }
 
+    /* Estilos para las tarjetas de logos */
+    .logos-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .card-logo img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
 </style>

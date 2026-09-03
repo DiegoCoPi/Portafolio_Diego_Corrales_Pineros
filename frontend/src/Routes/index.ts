@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../Pages/home.vue'
 import ItSupport from '../Pages/it-support.vue'
 import FullStack from '../Pages/fullstack.vue'
+import Mecatronic from '../Pages/mecatronic.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/fullstack',
     name: 'FullStack',
     component: FullStack
+  },
+  {
+    path: '/mecatronic',
+    name: 'Mecatronic',
+    component: Mecatronic
   }
 ]
 
