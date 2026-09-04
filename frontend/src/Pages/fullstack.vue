@@ -1,10 +1,36 @@
 <script setup lang="ts">
-  import NavBar from '../components/NavBar.vue'
-  import Header from '../components/Header.vue'
-  import Footer from '../components/Footer.vue'
-  
-  // 1. Quitar la extensión .ts al importar
-  import { LogosFullStack } from '../components/Logos-Full-Stack'
+    import { ref, computed } from 'vue'
+    import NavBar from '../components/NavBar.vue'
+    import Header from '../components/Header.vue'
+    import Footer from '../components/Footer.vue'
+    import { LogosFullStack } from '../components/Logos-Full-Stack'
+
+    const current_index = ref(0)
+    const itemsPerPage = 4 // Cantidad fija que quieres mostrar en pantalla
+
+    // Propiedad computada que toma una "ventana" de 4 elementos y da la vuelta circularmente
+    const visibleLogos = computed(() => {
+        const total = LogosFullStack.length
+        const result = []
+
+        for (let i = 0; i < itemsPerPage; i++) {
+            // Calcula el índice de forma circular para que nunca dé error de índice fuera de rango
+            const index = (current_index.value + i) % total
+            result.push(LogosFullStack[index])
+        }
+
+        return result
+    })
+
+    // Al presionar siguiente, avanzamos de 1 en 1
+    const nextIndex = () => {
+        current_index.value = (current_index.value + 1) % LogosFullStack.length
+    }
+
+    // Al presionar anterior, retrocedemos de 1 en 1 de forma segura
+    const prevIndex = () => {
+        current_index.value = (current_index.value - 1 + LogosFullStack.length) % LogosFullStack.length
+    }
 </script>
 
 <template>
@@ -36,19 +62,26 @@
         </main>
             <!-- 2. Recorrer las tarjetas de logos desde el archivo TypeScript -->
         <div class="logos-container">
-            <div>
-                <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
+    <div>
+        <button @click="prevIndex" class="btn-arrows">
+            <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
+        </button>
+    </div>
+
+    <!-- Cambiamos LogosFullStack por visibleLogos aquí -->
+    <div class="logos-grid">
+            <div v-for="Logo in visibleLogos" :key="Logo.id" class="logo-card">
+                <img :src="Logo.img" :alt="Logo.alt"/>
+                <p>{{ Logo.name }}</p>
             </div>
-                <div v-if="LogosFullStack.length > 0" class="logos-grid">
-                    <div v-for="Logo in LogosFullStack" :key="Logo.id">
-                        <img :src="Logo.img" :alt="Logo.alt"/>
-                        <p>{{ Logo.name }}</p>
-                    </div>
-                </div>
-            <div>
-                <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
-            </div>    
         </div>
+
+        <div>
+            <button @click="nextIndex" class="btn-arrows">
+                <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
+            </button>
+        </div>    
+    </div>
        
         <Footer/>
     </div>
@@ -113,10 +146,15 @@
         justify-content: center;
     }
 
+    .btn-arrows {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
     .arrows {
         width: 60px;
         height: 60px;
-        cursor: pointer;
         flex-direction: row;
         margin-top: 20px;
     }

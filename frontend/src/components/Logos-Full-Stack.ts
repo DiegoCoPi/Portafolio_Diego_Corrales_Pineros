@@ -11,7 +11,9 @@ const DevLogos = [
     { id: 2, name: "MySQL", alt: "MySQL Logo" },
     { id: 3, name: "NestJS", alt: "NestJS Logo" },       
     { id: 4, name: "NodeJS", alt: "Node.js Logo" },       
-    { id: 5, name: "React", alt: "React Logo" },          
+    { id: 5, name: "NextJS", alt: "Next.js Logo" },
+    { id: 6, name: "VueJS", alt: "VueJS Logo" },
+    { id: 7, name: "React", alt: "React Logo" },          
 ]
 
 export const LogosFullStack: Logos[] = DevLogos.map((tech) => ({
