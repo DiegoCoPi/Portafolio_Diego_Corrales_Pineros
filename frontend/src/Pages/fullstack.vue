@@ -36,12 +36,18 @@
         </main>
             <!-- 2. Recorrer las tarjetas de logos desde el archivo TypeScript -->
         <div class="logos-container">
-            <div v-if="LogosFullStack.length > 0" class="logos-grid">
-                <div v-for="Logo in LogosFullStack" :key="Logo.id">
-                    <img :src="Logo.img" :alt="Logo.alt"/>
-                    <p>{{ Logo.name }}</p>
-                </div>
+            <div>
+                <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
             </div>
+                <div v-if="LogosFullStack.length > 0" class="logos-grid">
+                    <div v-for="Logo in LogosFullStack" :key="Logo.id">
+                        <img :src="Logo.img" :alt="Logo.alt"/>
+                        <p>{{ Logo.name }}</p>
+                    </div>
+                </div>
+            <div>
+                <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
+            </div>    
         </div>
        
         <Footer/>
@@ -96,33 +102,39 @@
     /* Estilos para las tarjetas de logos */
     .logos-container {
         color:silver;
-        background-color: rgba(4, 228, 60, 0.778);
+        background-color: rgba(4, 142, 228, 0.577);
         display: flex;
         flex-direction: row;
-        margin-top: 20px;
+        margin-top: 5px;
+        margin-left: 50px;
+        margin-right: 50px;
         padding: 20px;
         text-align: center;
         justify-content: center;
     }
+
+    .arrows {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
     .logos-grid {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         justify-content: flex-start;
     }
-
-    .card-logo {
+    
+    .logos-grid img {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 15px;
-        border-radius: 8px;
+        width: 95px;
+        height: 80px;
     }
 
-    .card-logo img {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-    }
+ 
+
 </style>
