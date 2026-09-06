@@ -75,7 +75,7 @@
                      </div>
                      <!-- Imagenes de los Logos -->
                      <div class="logos-grid">
-                        <div v-for="Logo in visibleLogos" :key="Logo.id" class="Logo-card">">
+                        <div v-for="Logo in visibleLogos" :key="Logo.id" class="Logo-card">
                             <img :src="Logo.img" :alt="Logo.alt"/>
                             <p>{{Logo.name}}</p>
                         </div>
@@ -86,9 +86,7 @@
                             <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
                         </button>
                      </div>
-
                 </div>
-        
         <Footer/>
     </div>
 </template>
@@ -157,6 +155,12 @@
     justify-content: flex-start;
 }
 
+.logos-grid img{
+    height: 80px;
+    width: 80px;
+    flex-direction: row;
+}
+
 .btn-arrows {
     background-color: transparent;
     border: none;
@@ -164,10 +168,10 @@
 
 }
 .arrows{
-    height: 50px;
-    width: 50px;
+    width: 60px;
+    height: 60px;
     flex-direction: row;
-    gap: 20px;
+    margin-top: 20px;;
 }
     
 </style>
