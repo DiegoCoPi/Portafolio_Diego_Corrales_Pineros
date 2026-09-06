@@ -20,5 +20,5 @@ export const LogosFullStack: Logos[] = DevLogos.map((tech) => ({
     id: tech.id,
     name: tech.name,
     alt: tech.alt,
-    img: new URL(`../assets/Programming/${tech.name}.png`, import.meta.url).href
+    img: new URL(`../../assets/Programming/${tech.name}.png`, import.meta.url).href
 }))

@@ -3,12 +3,12 @@
     import NavBar from '../components/NavBar.vue'
     import Header from '../components/Header.vue'
     import Footer from '../components/Footer.vue'
-    import { LogosFullStack } from '../components/Logos-Full-Stack'
+    import {LogosFullStack} from '../components/Logos/Logos-Full-Stack'
 
     const current_index = ref(0)
-    const itemsPerPage = 4 // Cantidad fija que quieres mostrar en pantalla
+    const itemsPerPage = 4 
 
-    // Propiedad computada que toma una "ventana" de 4 elementos y da la vuelta circularmente
+  
     const visibleLogos = computed(() => {
         const total = LogosFullStack.length
         const result = []
@@ -62,26 +62,26 @@
         </main>
             <!-- 2. Recorrer las tarjetas de logos desde el archivo TypeScript -->
         <div class="logos-container">
-    <div>
-        <button @click="prevIndex" class="btn-arrows">
-            <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
-        </button>
-    </div>
-
-    <!-- Cambiamos LogosFullStack por visibleLogos aquí -->
-    <div class="logos-grid">
-            <div v-for="Logo in visibleLogos" :key="Logo.id" class="logo-card">
-                <img :src="Logo.img" :alt="Logo.alt"/>
-                <p>{{ Logo.name }}</p>
+            <div>
+                <button @click="prevIndex" class="btn-arrows">
+                    <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
+                </button>
             </div>
-        </div>
 
-        <div>
-            <button @click="nextIndex" class="btn-arrows">
-                <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
-            </button>
-        </div>    
-    </div>
+            <!-- Cambiamos LogosFullStack por visibleLogos aquí -->
+            <div class="logos-grid">
+                <div v-for="Logo in visibleLogos" :key="Logo.id" class="logo-card">
+                    <img :src="Logo.img" :alt="Logo.alt"/>
+                    <p>{{ Logo.name }}</p>
+                </div>
+            </div>
+
+            <div>
+                <button @click="nextIndex" class="btn-arrows">
+                    <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
+                </button>
+            </div>    
+        </div>
        
         <Footer/>
     </div>
