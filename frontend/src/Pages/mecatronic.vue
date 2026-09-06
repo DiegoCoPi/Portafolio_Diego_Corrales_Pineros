@@ -1,9 +1,41 @@
 <script setup lang="ts">
+  import { ref, computed } from 'vue'
   import NavBar from '../components/NavBar.vue'
   import Header from '../components/Header.vue'
   import Footer from '../components/Footer.vue'
-  
-  
+  import { LogosMecatronic } from '../components/Logos/Logos-Mechatronic'
+
+  //Operación para aparecer las cards de 4 en pantalla
+  // Cinstantes Iniciales
+  const itemsLogos = 4
+  const CurrentIndex= ref(0)
+
+  //Visibilidad de imagenes
+
+  const visibleLogos = computed(()=>{
+
+    const total = LogosMecatronic.length
+    const result = [] 
+
+    // Recorrido de imagenes de 4 en 4
+    for(let i=0; i<itemsLogos; i++){
+        const index = (CurrentIndex.value +i)%total;
+        result.push(LogosMecatronic[index])
+
+    }
+    return result
+  })
+
+  // Efecto de deslizamiento previo
+  const prevLogo = () =>{
+    CurrentIndex.value = (CurrentIndex.value -1 + LogosMecatronic.length)%LogosMecatronic.length
+  }
+
+  // Efecto de deslizamiento siguiente
+  const nextLogo = () =>{
+    CurrentIndex.value = (CurrentIndex.value +1)%LogosMecatronic.length
+  }
+ 
 </script>
 
 <template>
@@ -31,12 +63,32 @@
                         Diego Alexander Corrales Piñeros Ingeniero Mecatrónico
                     </a>
                 </div>
-                <div>
-                    <!-- Tarjetas de logos -->
-                   
-                </div>
             </div>
         </main>
+        <!-- Tarjetas de logos -->
+        <div class="logos-container">
+            <!-- Efecto e imagen de flecha a la izquierda -->
+                     <div>
+                        <button @click="prevLogo" class="btn-arrows">
+                            <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
+                        </button>
+                     </div>
+                     <!-- Imagenes de los Logos -->
+                     <div class="logos-grid">
+                        <div v-for="Logo in visibleLogos" :key="Logo.id" class="Logo-card">">
+                            <img :src="Logo.img" :alt="Logo.alt"/>
+                            <p>{{Logo.name}}</p>
+                        </div>
+                     </div>
+                     <!-- Efecto e imagen de flecha a la derecha -->
+                     <div>
+                        <button @click="nextLogo" class="btn-arrows">
+                            <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
+                        </button>
+                     </div>
+
+                </div>
+        
         <Footer/>
     </div>
 </template>
@@ -59,31 +111,63 @@
 }
 
 .mecatronic-introduce {
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
-    }
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
 
-    .mecatronic-introduce .title-mecatronic {
-        text-align: left;
-        color: rgb(6, 235, 67);
-        font-size: 4rem;
-    }
+.mecatronic-introduce .title-mecatronic {
+    text-align: left;
+    color: rgb(6, 235, 67);
+    font-size: 4rem;
+}
 
-    .mecatronic-introduce p {
-        color: #8C8C8C;
-        font-size: 2.3rem;
-    }
+.mecatronic-introduce p {
+    color: #8C8C8C;
+    font-size: 2.3rem;
+}
 
-    .mecatronic-introduce a {
-        color: rgb(6, 235, 67);
-        text-decoration: none;
-        margin: 1px;
-    }
+.mecatronic-introduce a {
+    color: rgb(6, 235, 67);
+    text-decoration: none;
+    margin: 1px;
+}
 
-    .mecatronic-introduce a img {
-        width: 100px;
-        height: 100px;
-    }
+.mecatronic-introduce a img {
+    width: 100px;
+    height: 100px;
+}
+.logos-container {
+    color:silver;
+    background-color: rgba(4, 142, 228, 0.577);
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.logos-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.btn-arrows {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+.arrows{
+    height: 50px;
+    width: 50px;
+    flex-direction: row;
+    gap: 20px;
+}
     
 </style>
