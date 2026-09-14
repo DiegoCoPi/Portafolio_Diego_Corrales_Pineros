@@ -67,26 +67,26 @@
         </main>
         <!-- Tarjetas de logos -->
         <div class="logos-container">
-            <!-- Efecto e imagen de flecha a la izquierda -->
-                     <div>
-                        <button @click="prevLogo" class="btn-arrows">
-                            <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
-                        </button>
-                     </div>
-                     <!-- Imagenes de los Logos -->
-                     <div class="logos-grid">
-                        <div v-for="Logo in visibleLogos" :key="Logo.id" class="Logo-card">
-                            <img :src="Logo.img" :alt="Logo.alt"/>
-                            <p>{{Logo.name}}</p>
-                        </div>
-                     </div>
-                     <!-- Efecto e imagen de flecha a la derecha -->
-                     <div>
-                        <button @click="nextLogo" class="btn-arrows">
-                            <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
-                        </button>
-                     </div>
+         <!-- Efecto e imagen de flecha a la izquierda -->
+            <div>
+                <button @click="prevLogo" class="btn-arrows">
+                    <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
+                </button>
+            </div>
+            <!-- Imagenes de los Logos -->
+            <div class="logos-grid">
+                <div v-for="Logo in visibleLogos" :key="Logo.id" class="Logo-card">
+                    <img :src="Logo.img" :alt="Logo.alt"/>
+                    <p>{{Logo.name}}</p>
                 </div>
+            </div>
+            <!-- Efecto e imagen de flecha a la derecha -->
+            <div>
+                <button @click="nextLogo" class="btn-arrows">
+                    <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
+                </button>
+            </div>
+        </div>
         <Footer/>
     </div>
 </template>

@@ -12,6 +12,7 @@ const MechLogos=[
     {id:4, name:"Matlab", alt:"Matlab Logo"},
     {id:5, name:"Proteus", alt:"Proteus Logo"},
     {id:6, name:"Festo-FluidSIM", alt:"Festo-FluidSIM Logo"},
+    {id:7, name:"LabView", alt:"LabView Logo"},
 ]
 
 export const LogosMecatronic:Logos[] = MechLogos.map((tech)=>({
