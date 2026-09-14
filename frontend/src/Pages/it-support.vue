@@ -1,8 +1,38 @@
 <script setup lang="ts">
   // Aquí irá la lógica de tu página de soporte IT más adelante
+  import { ref, computed } from 'vue'
   import NavBar from '../components/NavBar.vue'
   import Header from '../components/Header.vue'
   import Footer from '../components/Footer.vue'
+  import {LogosITSupport} from '../components/Logos/ITSupport'
+  //Implementación de efecto deslizamiento de Logos
+
+  const itemsLogos = 4
+  const CurrentIndex = ref(0)
+
+    //Mostrar 4 logos
+    const visibleLogos = computed(() => {
+    const total = LogosITSupport.length 
+    const result = [] 
+
+    for (let i = 0; i < itemsLogos; i++) {
+        const calIndex = (CurrentIndex.value + i) % total
+        result.push(LogosITSupport[calIndex])
+    }
+
+    return result
+})
+
+
+    const prevLogo = ()=>{
+        CurrentIndex.value = (CurrentIndex.value -1 + LogosITSupport.length ) % LogosITSupport.length
+    }
+
+    const nextLogo = ()=>{
+        CurrentIndex.value = (CurrentIndex.value + 1) % LogosITSupport.length
+    }
+
+
 </script>
 
 <template>
@@ -31,6 +61,27 @@
                 </div>
             </div>
         </main>
+        <div class="logos-container">
+         <!-- Efecto e imagen de flecha a la izquierda -->
+            <div>
+                <button @click="prevLogo" class="btn-arrows">
+                    <img src="../assets/various/Flecha-izquierda.png" alt="Flecha Izquierda" class="arrows"/>
+                </button>
+            </div>
+            <!-- Imagenes de los Logos -->
+            <div class="logos-grid">
+                <div v-for="Logo in visibleLogos" :key="Logo.id" class="Logo-card">
+                    <img :src="Logo.img" :alt="Logo.alt"/>
+                    <p>{{Logo.name}}</p>
+                </div>
+            </div>
+            <!-- Efecto e imagen de flecha a la derecha -->
+            <div>
+                <button @click="nextLogo" class="btn-arrows">
+                    <img src="../assets/various/Flecha-derecha.png" alt="Flecha Derecha" class="arrows"/>
+                </button>
+            </div>
+        </div>
         <Footer/>
     </div>
     
@@ -79,6 +130,46 @@
         height: 100px;
         display: flex;
         gap:5px;
+    }
+
+    .logos-container {
+        color:silver;
+        background-color: rgba(4, 142, 228, 0.577);
+        display: flex;
+        flex-direction: row;
+        margin-top: 5px;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .btn-arrows {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .arrows {
+        width: 60px;
+        height: 60px;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    .logos-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+    
+    .logos-grid img {
+        display: flex;
+        flex-direction: column;
+        width: 95px;
+        height: 80px;
     }
 
 </style>
