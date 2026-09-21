@@ -3,12 +3,14 @@ import Home from '../Pages/home.vue'
 import ItSupport from '../Pages/it-support.vue'
 import FullStack from '../Pages/fullstack.vue'
 import Mecatronic from '../Pages/mecatronic.vue'
+import NotFound from '../Pages/[...pathMatch].vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    alias: '/home'
   },
   {
     path: '/it-support',
@@ -24,6 +26,11 @@ const routes = [
     path: '/mecatronic',
     name: 'Mecatronic',
     component: Mecatronic
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404 error',
+    component: NotFound
   }
 ]
 
