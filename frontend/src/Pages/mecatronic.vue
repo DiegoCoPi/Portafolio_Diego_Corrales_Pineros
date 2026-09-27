@@ -1,41 +1,39 @@
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
-  import NavBar from '../components/NavBar.vue'
-  import Header from '../components/Header.vue'
-  import Footer from '../components/Footer.vue'
-  import { LogosMecatronic } from '../components/Logos/Logos-Mechatronic'
+    import { ref, computed } from 'vue'
+    import NavBar from '../components/NavBar.vue'
+    import Header from '../components/Header.vue'
+    import Footer from '../components/Footer.vue'
+    import { LogosMecatronic } from '../components/Logos/Logos-Mechatronic'
 
-  //Operación para aparecer las cards de 4 en pantalla
-  // Cinstantes Iniciales
-  const itemsLogos = 4
-  const CurrentIndex= ref(0)
+    // Constantes iniciales
+    const itemsPerPage = 4
+    const current_index = ref(0)
 
-  //Visibilidad de imagenes
+    // Visibilidad de imagenes de 4 en 4 de forma segura
+    const visibleLogos = computed(() => {
+        const total = LogosMecatronic.length
+        const result = []
 
-  const visibleLogos = computed(()=>{
+        for (let i = 0; i < itemsPerPage; i++) {
+            const index = (current_index.value + i) % total
+            const item = LogosMecatronic[index]
+            if (item) {
+                result.push(item)
+            }
+        }
 
-    const total = LogosMecatronic.length
-    const result = [] 
+        return result
+    })
 
-    // Recorrido de imagenes de 4 en 4
-    for(let i=0; i<itemsLogos; i++){
-        const index = (CurrentIndex.value +i)%total;
-        result.push(LogosMecatronic[index])
-
+    // Efecto de deslizamiento previo
+    const prevLogo = () => {
+        current_index.value = (current_index.value - 1 + LogosMecatronic.length) % LogosMecatronic.length
     }
-    return result
-  })
 
-  // Efecto de deslizamiento previo
-  const prevLogo = () =>{
-    CurrentIndex.value = (CurrentIndex.value -1 + LogosMecatronic.length)%LogosMecatronic.length
-  }
-
-  // Efecto de deslizamiento siguiente
-  const nextLogo = () =>{
-    CurrentIndex.value = (CurrentIndex.value +1)%LogosMecatronic.length
-  }
- 
+    // Efecto de deslizamiento siguiente
+    const nextLogo = () => {
+        current_index.value = (current_index.value + 1) % LogosMecatronic.length
+    }
 </script>
 
 <template>
@@ -47,11 +45,11 @@
                 <div>
                     <h2 class="title-mecatronic">Ingeniero Mecatrónico</h2>
                     <p>
-                        Participé en un proyecto en donde tuve la oportunidad de diseñar y esamblar 
-                        piezas mecánicas para maquinaria de fabricación de cubrebocas quirurgícos con 
-                        programas de dibujo tecnico 3D, planos 2D, circuitos eléctricos y calculos de 
+                        Participé en un proyecto en donde tuve la oportunidad de diseñar y ensamblar 
+                        piezas mecánicas para maquinaria de fabricación de cubrebocas quirúrgicos con 
+                        programas de dibujo técnico 3D, planos 2D, circuitos eléctricos y cálculos de 
                         motor con una eficiencia energética de 95%, producción del 100% propuesto y 
-                        entrega del proyecyo en un 7% más temprano de lo esperado.
+                        entrega del proyecto en un 7% más temprano de lo esperado.
                     </p>
                 </div>
                 <div>
@@ -92,9 +90,7 @@
 </template>
 
 <style scoped>
-
 .mecatronic-container {
-    /* Para el degradado de color plano sobre la imagen */
     background-image: 
       linear-gradient(rgba(4, 21, 71, 0.6), rgba(4, 21, 71, 0.6)),
       url('../assets/Pictures-for-screen/Robotica-1.jpg');
@@ -135,8 +131,9 @@
     width: 100px;
     height: 100px;
 }
+
 .logos-container {
-    color:silver;
+    color: silver;
     background-color: rgba(4, 142, 228, 0.577);
     display: flex;
     flex-direction: row;
@@ -165,13 +162,12 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-
 }
+
 .arrows{
     width: 60px;
     height: 60px;
     flex-direction: row;
-    margin-top: 20px;;
+    margin-top: 20px;
 }
-    
 </style>

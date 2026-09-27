@@ -9,14 +9,17 @@
     const itemsPerPage = 4 
 
   
+    // Visibilidad de imagenes de 4 en 4 de forma segura
     const visibleLogos = computed(() => {
         const total = LogosFullStack.length
         const result = []
 
         for (let i = 0; i < itemsPerPage; i++) {
-            // Calcula el índice de forma circular para que nunca dé error de índice fuera de rango
             const index = (current_index.value + i) % total
-            result.push(LogosFullStack[index])
+            const item = LogosFullStack[index]
+            if (item) {
+                result.push(item)
+            }
         }
 
         return result

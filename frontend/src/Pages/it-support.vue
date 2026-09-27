@@ -10,19 +10,21 @@
   const itemsLogos = 4
   const CurrentIndex = ref(0)
 
-    //Mostrar 4 logos
+    // Visibilidad de imagenes de 4 en 4 de forma segura
     const visibleLogos = computed(() => {
-    const total = LogosITSupport.length 
-    const result = [] 
+        const total = LogosITSupport.length
+        const result = []
 
-    for (let i = 0; i < itemsLogos; i++) {
-        const calIndex = (CurrentIndex.value + i) % total
-        result.push(LogosITSupport[calIndex])
-    }
+        for (let i = 0; i < itemsPerPage; i++) {
+            const index = (current_index.value + i) % total
+            const item = LogosITSupport[index]
+            if (item) {
+                result.push(item)
+            }
+        }
 
-    return result
-})
-
+        return result
+    })
 
     const prevLogo = ()=>{
         CurrentIndex.value = (CurrentIndex.value -1 + LogosITSupport.length ) % LogosITSupport.length
