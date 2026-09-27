@@ -1,14 +1,13 @@
 <script setup lang="ts">
-  // Aquí irá la lógica de tu página de soporte IT más adelante
-  import { ref, computed } from 'vue'
-  import NavBar from '../components/NavBar.vue'
-  import Header from '../components/Header.vue'
-  import Footer from '../components/Footer.vue'
-  import {LogosITSupport} from '../components/Logos/ITSupport'
-  //Implementación de efecto deslizamiento de Logos
+    import { ref, computed } from 'vue'
+    import NavBar from '../components/NavBar.vue'
+    import Header from '../components/Header.vue'
+    import Footer from '../components/Footer.vue'
+    import { LogosITSupport } from '../components/Logos/ITSupport'
 
-  const itemsLogos = 4
-  const CurrentIndex = ref(0)
+    // Constantes iniciales con nombres sincronizados
+    const itemsPerPage = 4
+    const current_index = ref(0)
 
     // Visibilidad de imagenes de 4 en 4 de forma segura
     const visibleLogos = computed(() => {
@@ -26,15 +25,13 @@
         return result
     })
 
-    const prevLogo = ()=>{
-        CurrentIndex.value = (CurrentIndex.value -1 + LogosITSupport.length ) % LogosITSupport.length
+    const prevLogo = () => {
+        current_index.value = (current_index.value - 1 + LogosITSupport.length) % LogosITSupport.length
     }
 
-    const nextLogo = ()=>{
-        CurrentIndex.value = (CurrentIndex.value + 1) % LogosITSupport.length
+    const nextLogo = () => {
+        current_index.value = (current_index.value + 1) % LogosITSupport.length
     }
-
-
 </script>
 
 <template>
@@ -44,7 +41,7 @@
         <main class="main">
             <div class="ItSupport-introduce">
                 <div>
-                    <h2 class="title-it">Especilaista de soporte IT</h2>
+                    <h2 class="title-it">Especialista de soporte IT</h2>
                     <p>
                         Tengo experiencia en mesa de ayuda para configurar redes IP, modem satelitales, equipos
                         complementarios de WAN, LAN, VLAN e IP, orientación al cliente para solventar el problema
@@ -54,11 +51,12 @@
                     </p>
                 </div>
                 <div>
-                    <!--Insertar archivo descargable -->
-                    <a href="../../public/documents/DiegoAlexanderCorralesPiñerosDesarrolladorJunior.pdf" 
-                    download="Diego_Alexander_Corrales_Pineros_Desarrollador_Junior.pdf" class="btn-download">
+                    <!-- Enlace público correcto para descarga -->
+                    <a href="/documents/DiegoAlexanderCorralesPiñerosDesarrolladorJunior.pdf" 
+                       download="Diego_Alexander_Corrales_Pineros_Desarrollador_Junior.pdf" 
+                       class="btn-download">
                         <img src="../assets/Pictures-for-screen/Adobe_PDF.png" alt="PDF Icon"/>
-                        Diego Alexander Corrales Piñeros Desarrollador FullStack
+                        Diego Alexander Corrales Piñeros Especialista IT
                     </a>
                 </div>
             </div>
@@ -86,92 +84,139 @@
         </div>
         <Footer/>
     </div>
-    
 </template>
 
 <style scoped>
+.it-support-container {
+    background-image: 
+    linear-gradient(rgba(4, 21, 71, 0.6), rgba(4, 21, 71, 0.6)),
+    url('../assets/Pictures-for-screen/Circuitos-3.jpg');
+    background-size: cover;          
+    background-position: center;   
+    background-repeat: no-repeat;    
+    min-height: 100vh;               
+    width: 100%;                     
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-    .it-support-container {
-        background-image: 
-        linear-gradient(#04154799),
-        url('../assets/Pictures-for-screen/Circuitos-3.jpg');
-        background-size: cover;          
-        background-position: center;   
-        background-repeat: no-repeat;    
-        min-height: 100vh;               
-        width: 100%;                     
-        display: flex;
+.ItSupport-introduce {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px;
+}
+
+.ItSupport-introduce .title-it {
+    text-align: left;
+    color: rgb(6, 235, 67);
+    font-size: 4rem;
+}
+
+.ItSupport-introduce p {
+    color: #8C8C8C;
+    font-size: 2.3rem;
+}
+
+.ItSupport-introduce a {
+    color: rgb(6, 235, 67);
+    text-decoration: none;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ItSupport-introduce a img {
+    width: 100px;
+    height: 100px;
+}
+
+.logos-container {
+    color: silver;
+    background-color: rgba(4, 142, 228, 0.577);
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-arrows {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.arrows {
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+}
+
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.logos-grid img {
+    width: 95px;
+    height: 80px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN PARA CELULARES Y TABLETS
+   ========================================== */
+@media (max-width: 768px) {
+    .ItSupport-introduce {
         flex-direction: column;
-        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 10px;
     }
 
-    .ItSupport-introduce{
-        display: flex;
-        gap:30px;
+    .ItSupport-introduce .title-it {
+        font-size: 2.2rem;
+        text-align: center;
     }
 
-    .ItSupport-introduce .title-it{
-        text-align: left;
-        color:rgb(6, 235, 67);
-        font-size: 4rem;
+    .ItSupport-introduce p {
+        font-size: 1.4rem;
+        text-align: justify;
     }
 
-    .ItSupport-introduce p{
-        color: #8C8C8C;
-        font-size: 2.3rem;
-    }
-
-    .ItSupport-introduce a{
-        color: rgb(6, 235, 67);
-        text-decoration: none;
-        margin: 1px
-    }
-
-    .ItSupport-introduce a img{
-        width: 100px;
-        height: 100px;
-        display: flex;
-        gap:5px;
+    .ItSupport-introduce a {
+        flex-direction: column;
+        text-align: center;
     }
 
     .logos-container {
-        color:silver;
-        background-color: rgba(4, 142, 228, 0.577);
-        display: flex;
-        flex-direction: row;
-        margin-top: 5px;
-        margin-left: 50px;
-        margin-right: 50px;
-        padding: 20px;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .btn-arrows {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
-    .arrows {
-        width: 60px;
-        height: 60px;
-        flex-direction: row;
-        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        gap: 5px;
     }
 
     .logos-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: flex-start;
-    }
-    
-    .logos-grid img {
-        display: flex;
-        flex-direction: column;
-        width: 95px;
-        height: 80px;
+        gap: 10px;
     }
 
+    .logos-grid img {
+        width: 50px;
+        height: 45px;
+    }
+
+    .arrows {
+        width: 35px;
+        height: 35px;
+    }
+}
 </style>

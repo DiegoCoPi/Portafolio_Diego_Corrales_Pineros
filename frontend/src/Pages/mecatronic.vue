@@ -108,6 +108,7 @@
     display: flex;
     flex-direction: row;
     gap: 30px;
+    padding: 20px;
 }
 
 .mecatronic-introduce .title-mecatronic {
@@ -125,6 +126,9 @@
     color: rgb(6, 235, 67);
     text-decoration: none;
     margin: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .mecatronic-introduce a img {
@@ -143,19 +147,19 @@
     padding: 20px;
     text-align: center;
     justify-content: center;
+    align-items: center;
 }
 
 .logos-grid{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .logos-grid img{
     height: 80px;
     width: 80px;
-    flex-direction: row;
 }
 
 .btn-arrows {
@@ -167,7 +171,56 @@
 .arrows{
     width: 60px;
     height: 60px;
-    flex-direction: row;
     margin-top: 20px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN PARA CELULARES Y TABLETS
+   ========================================== */
+@media (max-width: 768px) {
+    .mecatronic-introduce {
+        flex-direction: column; /* Apila el texto y la descarga verticalmente */
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .mecatronic-introduce .title-mecatronic {
+        font-size: 2.2rem; /* Reduce el título para pantallas pequeñas */
+        text-align: center;
+    }
+
+    .mecatronic-introduce p {
+        font-size: 1.4rem; /* Texto más legible en móviles */
+        text-align: justify;
+    }
+
+    .mecatronic-introduce a {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logos-container {
+        flex-direction: row; /* Mantiene las flechas a los lados pero ajusta márgenes */
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .logos-grid {
+        gap: 10px;
+    }
+
+    .logos-grid img {
+        height: 50px;
+        width: 50px; /* Reduce un poco los logos para que quepan bien en celulares */
+    }
+
+    .arrows {
+        width: 35px;
+        height: 35px; /* Reduce las flechas en dispositivos móviles */
+    }
 }
 </style>

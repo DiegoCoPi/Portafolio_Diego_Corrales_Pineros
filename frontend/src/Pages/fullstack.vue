@@ -8,7 +8,6 @@
     const current_index = ref(0)
     const itemsPerPage = 4 
 
-  
     // Visibilidad de imagenes de 4 en 4 de forma segura
     const visibleLogos = computed(() => {
         const total = LogosFullStack.length
@@ -128,6 +127,9 @@
         color: rgb(6, 235, 67);
         text-decoration: none;
         margin: 1px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .fullstack-introduce a img {
@@ -147,6 +149,7 @@
         padding: 20px;
         text-align: center;
         justify-content: center;
+        align-items: center;
     }
 
     .btn-arrows {
@@ -158,7 +161,6 @@
     .arrows {
         width: 60px;
         height: 60px;
-        flex-direction: row;
         margin-top: 20px;
     }
 
@@ -166,16 +168,60 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-        justify-content: flex-start;
+        justify-content: center;
     }
     
     .logos-grid img {
-        display: flex;
-        flex-direction: column;
         width: 95px;
         height: 80px;
     }
 
- 
+    /* ==========================================
+       RESPONSIVE DESIGN PARA CELULARES Y TABLETS
+       ========================================== */
+    @media (max-width: 768px) {
+        .fullstack-introduce {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+            padding: 10px;
+        }
 
+        .fullstack-introduce .title-fullstack {
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        .fullstack-introduce p {
+            font-size: 1.4rem;
+            text-align: justify;
+        }
+
+        .fullstack-introduce a {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .logos-container {
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 10px;
+            gap: 5px;
+        }
+
+        .logos-grid {
+            gap: 10px;
+        }
+
+        .logos-grid img {
+            width: 50px;
+            height: 45px;
+        }
+
+        .arrows {
+            width: 35px;
+            height: 35px;
+        }
+    }
 </style>
